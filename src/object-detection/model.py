@@ -29,7 +29,7 @@ class Fit:
             {'params': [p for n, p in param_optim if not any(nd in n for nd in no_decay)], 'weight_decay': 0.001},
             {'params': [p for n, p in param_optim if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}]
         self.params = [p for p in self.model.parameters() if p.requires_grad]
-        self.optimizer = torch.optim.Adam(self.params, lr=config.lr)
+        self.optimizer = torch.optim.AdamW(self.params, lr=config.lr)
         self.scheduler = config.Scheduler(self.optimizer, **config.scheduler_params)
         self.log(f'Running on {self.device}')
 

@@ -5,7 +5,7 @@ class Config:
     n_workers = 8
     batch_size = 8
     epochs = 40
-    lr = 1e-4
+    lr = 2e-4
     verbose = True
     verbose_step = 1
     step_scheduler = False

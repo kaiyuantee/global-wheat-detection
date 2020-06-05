@@ -13,7 +13,7 @@ def albu_train():
                                A.HueSaturationValue(hue_shift_limit=0.2,
                                                     sat_shift_limit=0.2,
                                                     val_shift_limit=0.2)], p=0.9),
-                      A.CLAHE(p=1.0),  # CLAHE only supports uint8
+                      #A.CLAHE(p=1.0),  # CLAHE only supports uint8
                       A.MedianBlur(blur_limit=7, p=0.5),
                       A.CoarseDropout(max_height=64, max_width=64,
                                       fill_value=0, min_holes=2,
@@ -38,7 +38,7 @@ def albu_val():
                                A.HueSaturationValue(hue_shift_limit=0.2,
                                                     sat_shift_limit=0.2,
                                                     val_shift_limit=0.2)], p=0.9),
-                      A.CLAHE(p=1.0),  # CLAHE only supports uint8
+                      #A.CLAHE(p=1.0),  # CLAHE only supports uint8
                       A.MedianBlur(blur_limit=7, p=0.5),
                       #                     A.CoarseDropout(max_height=64,max_width=64,
                       #                                     fill_value=0,min_holes=2,

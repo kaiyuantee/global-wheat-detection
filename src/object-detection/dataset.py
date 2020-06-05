@@ -54,8 +54,8 @@ class GetDataset(Dataset):
         records = self.df[self.df['image_id'] == image_id]
 
         img = cv2.imread(TRAIN_PATH + f'{image_id}.jpg', cv2.IMREAD_COLOR)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB).astype(np.uint8)  # float32
-        # img = img / 255
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB).astype(np.float32)  # float32
+        img = img / 255
 
         boxes = records[['xmin', 'ymin', 'xmax', 'ymax', 'area']].values
         return img, boxes
@@ -71,7 +71,7 @@ class GetDataset(Dataset):
         xc, yc = [int(random.uniform(imsize * 0.25, imsize * 0.75)) for _ in range(2)]  # center x, y
         indexes = [index] + [random.randint(0, self.image_ids.shape[0] - 1) for _ in range(3)]
 
-        result_image = np.full((imsize, imsize, 3), 1, dtype=np.uint8)  # float32
+        result_image = np.full((imsize, imsize, 3), 1, dtype=np.float32)  # float32
         result_boxes = []
 
         for i, index in enumerate(indexes):
