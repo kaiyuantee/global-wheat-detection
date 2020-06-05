@@ -1,4 +1,4 @@
 # path
-PATH = 'global-wheat-detection/'
+PATH = '/workspace/'
 TRAIN_PATH = PATH + 'train/'
 TEST_PATH = PATH + 'test/'
